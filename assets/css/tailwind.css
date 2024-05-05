@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 12265d */
+/* 1a398c */
+
+body {
+    @apply bg-gray-100 mx-0;
+}

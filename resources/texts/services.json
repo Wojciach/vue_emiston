@@ -1,0 +1,55 @@
+[
+    {
+        "name": "Budowę dróg, chodników oraz układanie masy bitumicznej",
+        "subList": []
+    },
+    {
+        "name": "Dostawę materiałów sypkich, w tym:",
+        "subList": [
+            "Piasek do fundamentów",
+            "Kamienie otoczka do drenażu",
+            "Kamień bazaltowy lub granitowy pod kostkę"
+        ]
+    },
+    {
+        "name": "Wynajem sprzętu budowlanego, takiego jak:",
+        "subList": [
+            "Minikoparka",
+            "Koparka kołowa",
+            "Koparko-ładowarka"
+        ]
+    },
+    {
+        "name": "Usługi transportowe, z możliwością dostawy materiałów sypkich, korzystając z wywrotek o różnej ładowności:",
+        "subList": [
+            "8 ton",
+            "20ton",
+            "3,5tony"
+        ]
+    },
+    {
+        "name": "Wykopy pod fundamenty oraz:",
+        "subList": [
+            "kable światłowodowe",
+            "sieci wodne",
+            "sieci kanalizacyjne"
+        ]
+    },
+    {
+        "name": "Wynajem wywrotki z operatorem",
+        "subList": [
+            "załadunek palet",
+            "rozładunek palet",
+            "wyróz gruzu",
+            "wyróz ziemi"
+        ]
+    },
+    {
+        "name": "Czyszczenie i niwelacja terenu",
+        "subList": [
+            "załadunek palet",
+            "rozładunek palet",
+            "sieci kanalizacyjne"
+        ]
+    }
+]
