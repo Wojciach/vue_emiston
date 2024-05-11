@@ -2,9 +2,9 @@
   <MyHeader title="Nasze Usługi:" />
   <ul>
     <li class="text-center" v-for="(value, key) in services" :key="key">
-       <span class="text-blue-900 text-xl"> {{ value.name }} </span> 
+       <span class="text-blue-900 text-xl mx-2 md:mx-18"> {{ value.name }} </span> 
         <ul class="m-6 myUl">
-          <li class="text-left ml-60 " v-for="(subItem, subIndex) in value.subList" :key="subIndex">
+          <li class="text-left ml-10 md:ml-60 " v-for="(subItem, subIndex) in value.subList" :key="subIndex">
             {{ subItem }}
           </li>
         </ul>

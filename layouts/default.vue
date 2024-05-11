@@ -1,11 +1,19 @@
 <template>
-    <header class="shadow-sm bg-white flex items-center justify-around">
+    <header class="shadow-sm bg-white flex items-center flex-col md:flex-row justify-around md:justify-between overflow-hidden">
         <NuxtLink to="/" class="flex flex-row items-center">
-            <img class="mx-5 size-12" src="../img_source/302233880_579894940361629_7555201057463987984_n.webp" />
-            <div class="text-2xl text-blue-900 font-semibold hidden sm:block">Emiston</div>
+            <img class="mx-5 size-12" src="/static/img_source/302233880_579894940361629_7555201057463987984_n.webp" />
+            <div class="text-2xl text-blue-900 font-semibold">Emiston</div>
         </NuxtLink>
-        <nav class="container mx-auto p-4 font-bold flex justify-end">
-            <ul class="flex gap-4">
+        <transition name="slide-fade" mode="out-in">
+        <nav
+            class="container mx-auto p-4 font-bold flex justify-center md:justify-end flex-row mb-2"
+            v-if="!menuOpen"
+            key="menu"
+        >
+            <ul
+                class="flex gap-4 transition-all duration-200 flex-row flex-wrap justify-center"
+                :class="{'translate-y-full': menuOpen, 'translate-y-0': !menuOpen}"
+            >
                 <li><NuxtLink class="btn" to="/">Home</NuxtLink></li>
                 <li> <NuxtLink class="btn" to="/o-nas">O nas</NuxtLink></li>
                 <li><NuxtLink class="btn" to="/produkty">Produkty</NuxtLink></li>
@@ -13,13 +21,15 @@
                 <li><NuxtLink class="btn" to="/galeria">Galeria</NuxtLink></li>
                 <li><NuxtLink class="btn" to="/contact">Kontakt</NuxtLink></li>
             </ul>
-            <span @click="toggleMenu" class="material-symbols-outlined ml-2 p-0 text-blue-900 bg-green-100">menu</span>
             
+            <!-- <button @click="toggleMenu" class="hover:bg-gray-200 material-symbols-outlined ml-2 p-0 text-blue-900">menu</button> -->
         </nav>
+        </transition>
+        <button @click="toggleMenu" class="hover:bg-gray-200 material-symbols-outlined ml-2 mr-4 p-0 text-blue-900">menu</button>
         
     </header>
     <!-- Output page content -->
-    <div class="mx-28" >
+    <div class="mx-4 md:mx-28" >
         <NuxtPage />
     </div>
 </template>
@@ -36,9 +46,10 @@
             }
         ]
     })
-    let menuOpen = false;
+    const menuOpen = ref(false);
     const toggleMenu = () => {
-        menuOpen = !menuOpen;
+        menuOpen.value = !menuOpen.value;
+        console.log("menu open: " + menuOpen.value)
     }
 
 </script>
@@ -60,6 +71,30 @@
     'GRAD' 0,
     'opsz' 24
     }
+
+    .translate-y-full {
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: transform 1.3s ease, opacity 0.3s ease;
+    }
+    .translate-y-0 {
+        transform: translateY(0);
+        opacity: 1;
+        transition: transform 1.3s ease, opacity 0.3s ease;
+    }
+
+    .slide-fade-enter-active, .slide-fade-leave-active {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .slide-fade-enter, .slide-fade-leave-to {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    .slide-fade-enter-to, .slide-fade-leave {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
 </style>
 
 
