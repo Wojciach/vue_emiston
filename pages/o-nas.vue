@@ -1,23 +1,29 @@
 <template>
-  <MyHeader title="O nas" />
-  <BasicMenuItem title="home" icon="home" />
-  <svg id="woda" xmlns="http://www.w3.org/2000/svg" width="0" height="0">
-    <defs>
-      <clipPath id="clipPath" clipPathUnits="objectBoundingBox">
-        <path id="myPath" :class="{'animation': anime}" d="M0.1,0.1 L0.9,0.1 L0.9,0.9 L0.1,0.9 Z" fill="red" stroke="black" stroke-width="0.02" />
-      </clipPath>
-    </defs>
-  </svg>
-
-<img @click="go" id="image" src="/static/img_source/galeria/chodnik.jpg" />
-<MagicImage :imageUrl="chodnikImage" :maskUrl="chodnikMask" />
-  
+  <div>
+    <img class="object-cover w-full h-36" src="/stock/stock3.jpg" />
+    <MyHeader class="mb-1" title="O nas" />
+    <div class="flex flex-col justify-center items-center">
+      <p
+        class="w-5/6 text-center"
+        v-for="(paragraph, index) in opis" :key="index"
+      >
+        {{ paragraph }}
+      </p>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import chodnikMask from "/static/img_source/galeria/chodnik.png";
-import chodnikImage from "/static/img_source/galeria/chodnik.jpg";
 import { ref } from 'vue';
+import opis from '~/resources/texts/o_nas.json';
+
+definePageMeta({
+      middleware: ["dynamic-layout"],
+})
+
+useHead({
+  titleTemplate: '%s - O nas',
+})
 
 var anime = ref(false);
 const go = () => {
@@ -27,26 +33,5 @@ const go = () => {
 </script>
 
 <style>
-
-#image {
-  width: auto;
-  height: 400px;
-  margin-bottom: 100px;
-  clip-path: url(#clipPath);
-  mask-size: 100% 100%;
-}
-
-#myPath.animation {
-  animation: animatePath 2s linear;
-}
-
-@keyframes animatePath {
-    0% {
-      d: path("M0.1,0.1 L0.9,0.1 L0.9,0.1 L0.5,0.9 Z"); /* Start position */
-    }
-    100% {
-      d: path("M0.1,0.1 L0.9,0.1 L0.9,0.9 L0.1,0.9 Z"); /* End position */
-    }
-}
 
 </style>

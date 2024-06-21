@@ -83,22 +83,28 @@ const computedMaskUrl = computed(() => {
 var containerStyle = `
   width: ${props.width};
   height: ${props.height};
+  background-size: cover;
 `
 var dynamicStyle1 = `
    mask-image: url(${computedMaskUrl.value});
    background-image: url(${props.imageUrl});
+   background-size: cover;
+   mask-size: cover;
 `
 var dynamicStyle2 = `
    mask-image: url(${computedMaskUrl.value});
    transform: translate(${props.shift}, ${props.shift});
+   mask-size: cover;
 `
 var dynamicStyle3 = `
    mask-image: url(${computedMaskUrl.value});
    transform: translate(-${props.shift}, -${props.shift});
+   mask-size: cover;
 `
 var dynamicStyle4 = `
    mask-image: url(${computedMaskUrl.value});
    transform: translate(-${props.shift}, ${props.shift});
+   mask-size: cover;
 `
 </script>
 

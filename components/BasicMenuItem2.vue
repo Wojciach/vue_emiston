@@ -1,7 +1,5 @@
 <template>
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
   <div class="basic_menu_item">
     <div class="icon_section">
       <span class="material-symbols-outlined">{{ icon }}</span>
@@ -11,6 +9,7 @@
       {{ title }}
     </div>
   </transition>
+  <div class="rightShadow"></div>
   </div>
 </template>
 
@@ -41,27 +40,41 @@ const props = defineProps({
 <style>
 .basic_menu_item {
   position: relative;
-  @apply flex justify-center items-center font-normal;
+  @apply flex items-stretch justify-center text-center font-normal;
+}
+.bacic_menu_item::after {
+  position: absolute;
+  z-index: 20;
+  content: 'xxx';
+  width: 300px;
+  background-color: aqua;
+  top: 0;
+  left: 0;
 }
 
-.basic_menu_item:hover .icon_section {
+.basic_menu_item:hover {
   transform: scale(1.1);
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)
 }
-
-.basic_menu_item:hover .title_section {
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)
+.rightShadow {
+  position: absolute;
+  display: flex;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: auto;
+  transform: skew(15deg) translateX(6px);
+  @apply bg-red-700;
 }
 
 .icon_section {
-  @apply flex justify-center items-center border-2 text-white border-blue-900 rounded-full w-10 h-10 bg-blue-900;
+  @apply flex justify-center items-center border-2 text-white p-2 border-red-700 bg-red-700;
 }
 
 .title_section {
   position: relative;
-  z-index: -1;
-  transform:  translateX(-7px);
-  @apply flex whitespace-nowrap border-blue-900 border-l-transparent py-0.5 px-2.5 pr-2 bg-white rounded-tr-md rounded-br-md text-sm;
+  @apply flex items-center px-2 border-2 whitespace-nowrap border-red-700  bg-white text-sm;
 }
 
 .material-symbols-outlined {
