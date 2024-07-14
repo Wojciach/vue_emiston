@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col">
+    <div class="flex flex-col min-w-96">
         <div class="flex flex-row">
           <header class="drop-shadow-xl bg-gray-100 flex flex-col justify-start">
               <div class="sticky top-0">

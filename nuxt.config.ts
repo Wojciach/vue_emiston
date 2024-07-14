@@ -5,12 +5,33 @@ export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', "@nuxt/image"],
+  plugins: [
+    { src: '~/plugins/gsap.client.js', mode: 'client' }
+  ],
+  build: {
+    transpile: ['vue-gtag-next']
+  },
   app: {
     pageTransition: { name: 'fader', mode: 'out-in' },
     head: {
       htmlAttrs: {
         lang: 'pl',
       },
+      script: [
+        {
+          src: `https://www.googletagmanager.com/gtag/js?id=G-9QK1J5QGDG`,
+          async: true,
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-9QK1J5QGDG');
+          `,
+          type: 'text/javascript',
+        },
+      ],
       title: 'Emiston',
       charset: 'utf-8',
       meta: [

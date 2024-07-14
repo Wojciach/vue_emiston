@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="min-w-96">
         <header
             class="shadow-sm px-2 pl-4  bg-gray-100 flex flex-col md:flex-row items-center justify-around md:justify-between overflow-hidden"
             :class="{'md:flex-row': menuOpen, 'md:flex-row': !menuOpen}"

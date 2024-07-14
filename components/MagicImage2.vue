@@ -1,10 +1,14 @@
 <template>
 <div :style="containerStyle" class="container">
+  <!-- <NuxtImg src="/favico.png" class="z-40 absolute w-full" /> -->
+   <!-- {{ props.imageUrl }} -->
+  
   <div
     :style="dynamicStyle1"
     class="square1 saturate-50"
     :class="{'rounded-full': rounded,'animate': animate}"
   >
+  <NuxtImg :src="props.imageUrl" class="z-40 absolute w-full h-full object-cover" />
   </div>
   <div
     v-if="exist.includes(2)"
@@ -85,11 +89,13 @@ var containerStyle = `
   height: ${props.height};
   background-size: cover;
 `
+
+// background-image: url(${props.imageUrl});
 var dynamicStyle1 = `
-   mask-image: url(${computedMaskUrl.value});
-   background-image: url(${props.imageUrl});
-   background-size: cover;
-   mask-size: cover;
+  mask-image: url(${computedMaskUrl.value});
+  
+  background-size: cover;
+  mask-size: cover;
 `
 var dynamicStyle2 = `
    mask-image: url(${computedMaskUrl.value});

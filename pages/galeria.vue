@@ -9,9 +9,12 @@
         :animate="true"
         :exist="[2,3]"
       /> -->
+
+              <!-- :imageUrl="gallery[index]" -->
       <MagicImage2
         class="object-cover w-full h-full"
-        :imageUrl="gallery[index]"
+
+        :imageUrl="`/galeria/${filesList[index]}.jpg`"
         rounded
         shift="3%"
         :animate="true"
@@ -23,8 +26,12 @@
 
 <script setup>
 import data from "/static/img_source/galeria/galleryList.json";
-import { gallery } from '/static/img_source/galeria/gallery.tsx';
-import { galleryMask } from '/static/img_source/galeria/gallery.tsx';
+// import { gallery } from '/static/img_source/galeria/gallery.tsx';
+// import { gallery } from '/galeria/gallery.tsx';
+// import { galleryMask } from '/static/img_source/galeria/gallery.tsx';
+import filesList from '~/assets/filesList.json';
+
+
 
 definePageMeta({
       middleware: ["dynamic-layout"]

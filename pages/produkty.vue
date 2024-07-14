@@ -5,7 +5,7 @@
       <section v-for="(image, index) in images" :key="index" class="flex flex-row border-2 border-solid justify-around m-4 p-4">
         <MagicImage2
           class="scale-75 md:scale-100"
-          :imageUrl="image"
+          :imageUrl="`/img/kamienie_${index +1}.jpg`"
           :alt="`Image ${image}`"
           width="150px"
           height="150px"
@@ -36,8 +36,9 @@ useHead({
   titleTemplate: '%s - Produkty',
 })
 
-var images = [];
-images = [kamienie1, kamienie2, kamienie3]
+var images = ['kamienie1', 'kamienie2', 'kamienie3'];
+//images = [kamienie1, kamienie2, kamienie3]
+images = ['kamienie1', 'kamienie2', 'kamienie3']
 
 </script>
 

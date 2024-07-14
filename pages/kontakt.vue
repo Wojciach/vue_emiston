@@ -47,7 +47,5 @@ useHead({
 </script>
 
 <style>
-.map iframe{
 
-}
 </style>

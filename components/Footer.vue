@@ -6,7 +6,7 @@
       rel="noopener noreferrer"
       class="relative italic text-xs md:whitespace-nowrap text-gray-300 self-end text-center m-2 ml-0 rounded-full md:px-3 opacity-50 hover:opacity-100"> made by polbiz.net
     </NuxtLink>
-    <nav class="font-myCustom tracking-m  w-full">
+    <nav class="font-myCustom tracking-m w-full">
         <ul id="footerList" class="text-white flex flex-row flex-wrap justify-center pt-1">
             <li><NuxtLink :to="links.home">Home</NuxtLink></li>
             <li><NuxtLink :to="links.oNas">O nas</NuxtLink></li>
