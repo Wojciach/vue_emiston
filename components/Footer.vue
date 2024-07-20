@@ -1,12 +1,6 @@
 <template>
-  <footer class="flex flex-row justify-between items-top bg-blue-900 h-14 relative">
-    <NuxtLink
-      to="https://polbiz.net/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="relative italic text-xs md:whitespace-nowrap text-gray-300 self-end text-center m-2 ml-0 rounded-full md:px-3 opacity-50 hover:opacity-100"> made by polbiz.net
-    </NuxtLink>
-    <nav class="font-myCustom tracking-m w-full">
+  <footer class="flex flex-col justify-center items-center bg-blue-900 relative">
+    <nav class="font-myCustom tracking-m w-full my-2">
         <ul id="footerList" class="text-white flex flex-row flex-wrap justify-center pt-1">
             <li><NuxtLink :to="links.home">Home</NuxtLink></li>
             <li><NuxtLink :to="links.oNas">O nas</NuxtLink></li>
@@ -16,6 +10,12 @@
             <li><NuxtLink :to="links.kontakt">Kontakt</NuxtLink></li>
         </ul>
     </nav>
+    <NuxtLink
+      to="https://polbiz.net/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="relative italic text-xs md:whitespace-nowrap text-gray-300 mb-1 text-center rounded-full opacity-50 hover:opacity-100"> made by polbiz.net
+    </NuxtLink>
   </footer>
 </template>
 

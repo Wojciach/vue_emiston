@@ -1,9 +1,9 @@
 <template>
-  <div class="mx-14">
+  <div class="flex flex-col items-center justify-center blurIn hider">
     <MyHeader title="Nasze Usługi" />
-    <ul class="mt-8">
+    <ul class="max-w-4xl mx-5 border-2 border-solid">
       <li class="text-center" v-for="(value, key) in services" :key="key">
-         <span class="text-blue-900 text-xl mx-2 md:mx-18"> {{ value.name }} </span>
+         <span class="text-blue-900 text-xl"> {{ value.name }} </span>
           <ul class="m-6 myUl">
             <li class="text-left ml-10 md:ml-60 " v-for="(subItem, subIndex) in value.subList" :key="subIndex">
               {{ subItem }}
@@ -23,6 +23,17 @@ definePageMeta({
 
 useHead({
   titleTemplate: '%s - Usługi',
+})
+
+onMounted(() => {
+      const { $gsap, $ScrollTrigger } = useNuxtApp();
+      document.getElementsByClassName("hider")[0].classList.remove('hider');
+      $gsap.from('.blurIn', {
+            duration: 0.7,
+            ease: "power1",
+            opacity: 0,
+            filter: 'blur(20px)',
+      })
 })
 
 </script>

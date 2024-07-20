@@ -32,6 +32,7 @@
 </template>
 
 <script lang="ts" setup>
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const props = defineProps({
   unfolded: {
@@ -48,9 +49,21 @@ function isUnfolded(elementPath: string) {
         return true; 
     } else {
         return false;
+ 
+ 
     }
 }
 
+onMounted(() => {
+  const { $gsap } = useNuxtApp()
+
+    $gsap.from('.basic_menu_item', {
+        stagger: 0.05,
+        rotate: -45,
+        duration: 0.2,
+        ease: 'power1'
+    })
+})
 
 </script>
 

@@ -7,17 +7,9 @@
             <div id="logoAndMenu" class="flex flex-col md:flex-row justify-between w-full">
                 <NuxtLink
                     :to="links.home"
-                    :class="[
-                        'flex flex-col lg:flex-row items-center justify-center z-10',
-                        {'flex-row' : menuOpen, 'flex-col' : !menuOpen }
-                    ]"
+                    :class="linkClasses"
                 >
                     <img class="w-16" src="/logo/from_fb.png" />
-                    <!-- <div class="pseudoLogo block relative w-10 h-10 mx-4 pr-14">
-                        <div class="rounded-full absolute bg-gray-700 w-10 h-10 translate-y-0.5"></div>
-                        <div class="rounded-full absolute bg-red-700 w-10 h-10 z-10  translate-x-2 text-center text-white text-2xl calistoga-regular pt-1">T</div>
-                    </div> -->
-                   
                     <h1 class="text-blue-900 text-2xl font-semibold font-emilogo tracking-m2">EMISTON</h1>
                 </NuxtLink>
                 <transition name="slide-fade" mode="out-in">
@@ -28,8 +20,11 @@
                     >
                         <ul
                             :class="[
-                                'flex gap-2 transition-all duration-200 flex-row flex-wrap justify-center',
-                                {'translate-y-full': menuOpen, 'translate-y-0': !menuOpen}
+                                'flex gap-2 transition-all duration-200 flex-row flex-wrap justify-center main-menu',
+                                {
+                                    'translate-y-full': menuOpen,
+                                    'translate-y-0': !menuOpen
+                                }
                             ]"
                         >
                             <NavMenuItems :unfolded="unfolded" />
@@ -39,8 +34,13 @@
             </div>
             <div 
                 id="menuControls"
-                class="flex flex-row lg:flex-row md:flex-row justify-between h-full md:w-auto"
-                :class="{'md:flex-row' : !menuOpen, 'md:flex-col': !menuOpen}"
+                :class="[
+                    'flex flex-row lg:flex-row md:flex-row justify-between h-full md:w-auto',
+                    {
+                        'md:flex-row' : !menuOpen,
+                        'md:flex-col': !menuOpen
+                    }
+                ]"
             >
                     <button @click="changeLayout" class="hover:bg-gray-200 material-symbols-outlined p-2"> thumbnail_bar</button>
                     <button @click="menuUnfold" class="hover:bg-gray-200 material-symbols-outlined p-2">menu_open</button>
@@ -59,6 +59,11 @@
 <script setup>
     import { useMenu } from '~/composables/useMenu';
     const { unfolded, menuUnfold, menuOpen, toggleMenu } = useMenu();
+
+    const linkClasses = computed(() => [
+        'flex flex-col lg:flex-row items-center justify-center z-10',
+        menuOpen.value ? 'flex-row' : 'flex-col'
+    ]);
 
     function changeLayout() {
         useLayout('custom');

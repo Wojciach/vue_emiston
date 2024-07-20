@@ -1,5 +1,5 @@
 <template>
-<div :style="containerStyle" class="container">
+<div :style="containerStyle" class="container" @click="openImageInNewTab">
   <!-- <NuxtImg src="/favico.png" class="z-40 absolute w-full" /> -->
    <!-- {{ props.imageUrl }} -->
   
@@ -81,6 +81,11 @@ const props = defineProps({
 const computedMaskUrl = computed(() => {
   return props.maskUrl || props.imageUrl;
 });
+
+const openImageInNewTab = () => {
+  const imageUrl = props.imageUrl;
+  window.open(imageUrl, '_blank');
+};
 
 //var shift = props.width * props.stroke;
 

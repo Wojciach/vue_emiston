@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', "@nuxt/image"],
   plugins: [
-    { src: '~/plugins/gsap.client.js', mode: 'client' }
+    { src: '~/plugins/gsap.client.js', mode: 'client' },
   ],
   build: {
     transpile: ['vue-gtag-next']

@@ -6,13 +6,6 @@
                   <NuxtLink :to="links.home" class="flex flex-col items-center">
                       <img class="w-16 pt-2" src="/logo/from_fb.png" />
                       <h1 class="text-blue-900 text-2xl font-semibold font-emilogo tracking-m2">EMISTON</h1>
-                      <!-- <div class="pseudoLogo block relative w-10 h-10 mx-4 mr-7 my-2">
-                          <div class="rounded-full absolute bg-gray-700 w-10 h-10 translate-y-0.5"></div>
-                          <div class="rounded-full absolute bg-red-700 w-10 h-10 z-10  translate-x-2 text-center text-white text-2xl calistoga-regular pt-1">T</div>
-                      </div> -->
-                      <!-- <div  v-if="unfolded">
-                          <NavLogo />
-                      </div> -->
                   </NuxtLink>
                   <div id="menuControls" class="flex flex-row mt-2 mb-0 justify-center flex-wrap">
                       <button @click="changeLayout" class="material-symbols-outlined thoseButtons">toolbar</button>
@@ -27,7 +20,7 @@
                           key="menu"
                       >
                           <ul
-                              class="flex gap-4 transition-all duration-200 flex-col flex-wrap items-start"
+                              class="flex gap-4 transition-all duration-200 flex-col flex-wrap items-start main-menu"
                               :class="{'translate-y-full': menuOpen, 'translate-y-0': !menuOpen}"
                           >
                           <NavMenuItems :unfolded="unfolded" />
@@ -56,13 +49,13 @@
       }
       
       useHead({
-          link: [
-              {
-                  rel: 'stylesheet',
-                  href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
-                  crossorigin: ''
-              }
-          ]
+        link: [
+        {
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
+            crossorigin: ''
+        }
+        ]
       })
   
   </script>
